@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-crud-cli",
+  "version": "1.0.0",
+  "description": "CLI tool to generate API resources for Nuxt CRUD",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "nuxt-crud": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "nuxt",
+    "crud",
+    "cli",
+    "generator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.11.25",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "inquirer": "^9.2.15",
+    "zod": "^3.22.4"
+  }
+}
