@@ -2,6 +2,9 @@
 
 A command-line tool for generating API resources for Nuxt 3 CRUD applications.
 
+> [!WARNING]  
+> This package is not tested and highly experimental.
+
 ## Installation
 
 ```bash
