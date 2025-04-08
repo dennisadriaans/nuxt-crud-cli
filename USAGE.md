@@ -34,8 +34,7 @@ nuxt-crud generate
 
 ```
 ? What is the name of the resource? (singular, e.g. "post") product
-? What do you want to generate? All (Controller, Handlers, Requests, Resources)
-? Which handlers do you want to generate? create, getAll, getOne, update, delete
+? What do you want to generate? All (Controller, Requests, Resources)
 ? Which requests do you want to generate? Store, GetAll, GetOne, Update, Delete
 ? API version (e.g. "v1")? v1
 ? Do you want to create route files (index.ts and [id].ts)? Yes

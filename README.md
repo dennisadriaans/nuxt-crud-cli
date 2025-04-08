@@ -34,9 +34,8 @@ nuxt-crud --help
 This tool can generate the following components for your API:
 
 1. **Controllers**: Handle business logic for your resources
-2. **Handlers**: Process incoming HTTP requests and route them to controllers
-3. **Requests**: Validate incoming request data using Zod schemas
-4. **Resources**: Transform data for API responses
+2. **Requests**: Validate incoming request data using Zod schemas
+3. **Resources**: Transform data for API responses
 
 ## Examples
 
@@ -47,12 +46,12 @@ nuxt-crud generate
 ```
 
 Then follow the interactive prompts to:
+
 1. Enter a resource name (e.g., "product")
 2. Choose what to generate (e.g., "All")
-3. Select which handlers to generate
-4. Select which requests to generate
-5. Enter the API version (default: "v1")
-6. Choose whether to create route files
+3. Select which requests to generate
+4. Enter the API version (default: "v1")
+5. Choose whether to create route files
 
 ## Resource Structure
 
