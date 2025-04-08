@@ -14,14 +14,14 @@ export async function generateController(
   const controllerName = `${resourcePascalName}Controller`;
   const controllerPath = path.join(resourceDir, `${controllerName}.ts`);
   
-  const controllerContent = `import { use${resourcePascalName}Collection } from "~~/server/api/v1/${pluralResourceName}/resources/${resourceName}Collection";
-import { use${resourcePascalName}Resource } from "~~/server/api/v1/${pluralResourceName}/resources/${resourceName}Resource";
+  const controllerContent = `import { Use${resourcePascalName}Collection } from "~~/server/api/v1/${pluralResourceName}/resources/${resourcePascalName}Collection";
+import { Use${resourcePascalName}Resource } from "~~/server/api/v1/${pluralResourceName}/resources/${resourcePascalName}Resource";
 
 /**
  * ${resourcePascalName} Controller Composable
  * Handles business logic for ${resourceName} operations
  */
-export const use${resourcePascalName}Controller = () => {
+export const Use${resourcePascalName}Controller = () => {
   /**
    * Get all ${pluralResourceName}
    */
@@ -44,7 +44,7 @@ export const use${resourcePascalName}Controller = () => {
     }
     
     return {
-      data: use${resourcePascalName}Collection({ data: filtered${pluralResourceName} }).toArray(),
+      data: Use${resourcePascalName}Collection({ data: filtered${pluralResourceName} }).toArray(),
       meta: {
         total: filtered${pluralResourceName}.length,
         page: params.page || 1,
@@ -61,7 +61,7 @@ export const use${resourcePascalName}Controller = () => {
     const ${resourceName} = { id: parseInt(id), name: \`${resourcePascalName} \${id}\` };
     
     return {
-      data: use${resourcePascalName}Resource(${resourceName}).toArray(),
+      data: Use${resourcePascalName}Resource(${resourceName}).toArray(),
     };
   };
   
@@ -77,7 +77,7 @@ export const use${resourcePascalName}Controller = () => {
     
     return {
       message: '${resourcePascalName} created successfully',
-      data: use${resourcePascalName}Resource(new${resourcePascalName}).toArray(),
+      data: Use${resourcePascalName}Resource(new${resourcePascalName}).toArray(),
     };
   };
   
@@ -93,7 +93,7 @@ export const use${resourcePascalName}Controller = () => {
     
     return {
       message: '${resourcePascalName} updated successfully',
-      data: use${resourcePascalName}Resource(updated${resourcePascalName}).toArray(),
+      data: Use${resourcePascalName}Resource(updated${resourcePascalName}).toArray(),
     };
   };
   

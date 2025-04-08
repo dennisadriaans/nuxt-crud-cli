@@ -12,9 +12,9 @@ export async function generateResourceFiles(
 ): Promise<void> {
   const pluralResourceName = pluralize(resourceName);
   
-  // Generate types.ts
-  const typesPath = path.join(resourcesDir, 'types.ts');
-  const typesContent = `export interface ${resourcePascalName}ResourceProps {
+  // Generate Types.ts
+  const typesPath = path.join(resourcesDir, 'Types.ts');
+  const typesContent = `export interface ${resourcePascalName}Resource {
   id: number;
   name: string;
   // Add more properties as needed
@@ -22,11 +22,11 @@ export async function generateResourceFiles(
 `;
   fs.writeFileSync(typesPath, typesContent);
 
-  // Generate resource.ts
-  const resourcePath = path.join(resourcesDir, `${resourceName}Resource.ts`);
-  const resourceContent = `import type { ${resourcePascalName}ResourceProps } from "./types";
+  // Generate Resource.ts
+  const resourcePath = path.join(resourcesDir, `${resourcePascalName}Resource.ts`);
+  const resourceContent = `import type { ${resourcePascalName}Resource } from "./Types";
 
-export function use${resourcePascalName}Resource(${resourceName}: ${resourcePascalName}ResourceProps) {
+export function Use${resourcePascalName}Resource(${resourceName}: ${resourcePascalName}Resource) {
   const toArray = () => {
     return {
       id: ${resourceName}.id,
@@ -41,18 +41,18 @@ export function use${resourcePascalName}Resource(${resourceName}: ${resourcePasc
 }`;
   fs.writeFileSync(resourcePath, resourceContent);
 
-  // Generate collection.ts
-  const collectionPath = path.join(resourcesDir, `${resourceName}Collection.ts`);
-  const collectionContent = `import { use${resourcePascalName}Resource } from './${resourceName}Resource';
-import type { ${resourcePascalName}ResourceProps } from './types';
+  // Generate Collection.ts
+  const collectionPath = path.join(resourcesDir, `${resourcePascalName}Collection.ts`);
+  const collectionContent = `import { Use${resourcePascalName}Resource } from './${resourcePascalName}Resource';
+import type { ${resourcePascalName}Resource } from './Types';
 
-interface ${resourcePascalName}CollectionProps {
-  data: ${resourcePascalName}ResourceProps[];
+interface ${resourcePascalName}Collection {
+  data: ${resourcePascalName}Resource[];
 }
 
-export function use${resourcePascalName}Collection(collection: ${resourcePascalName}CollectionProps) {
+export function Use${resourcePascalName}Collection(collection: ${resourcePascalName}Collection) {
   const toArray = () => {
-    return collection.data.map((${resourceName}) => use${resourcePascalName}Resource(${resourceName}).toArray());
+    return collection.data.map((${resourceName}) => Use${resourcePascalName}Resource(${resourceName}).toArray());
   };
 
   return {

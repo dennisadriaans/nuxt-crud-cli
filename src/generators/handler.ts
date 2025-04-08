@@ -43,7 +43,7 @@ export async function generateHandler(
  */
 function generateCreateHandler(resourceName: string, resourcePascalName: string): string {
   return `import type { H3Event } from 'h3';
-import { use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
+import { Use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
 import { Store${resourcePascalName}Request } from "../requests/Store${resourcePascalName}Request";
 
 /**
@@ -55,7 +55,7 @@ export default async (event: H3Event) => {
   const validatedData = await Store${resourcePascalName}Request.validate(event);
   
   // Call the controller with validated data
-  const { store } = use${resourcePascalName}Controller();
+  const { store } = Use${resourcePascalName}Controller();
   return await store(validatedData);
 };
 `;
@@ -66,7 +66,7 @@ export default async (event: H3Event) => {
  */
 function generateGetAllHandler(resourceName: string, resourcePascalName: string): string {
   return `import type { H3Event } from 'h3';
-import { use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
+import { Use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
 import { GetAll${resourcePascalName}sRequest } from "../requests/GetAll${resourcePascalName}sRequest";
 
 /**
@@ -81,7 +81,7 @@ export default async (event: H3Event) => {
   const validatedParams = await GetAll${resourcePascalName}sRequest.validate(event);
   
   // Call the controller
-  const { index } = use${resourcePascalName}Controller();
+  const { index } = Use${resourcePascalName}Controller();
   return await index(validatedParams);
 };
 `;
@@ -92,7 +92,7 @@ export default async (event: H3Event) => {
  */
 function generateGetOneHandler(resourceName: string, resourcePascalName: string): string {
   return `import type { H3Event } from 'h3';
-import { use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
+import { Use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
 import { GetOne${resourcePascalName}Request } from "../requests/GetOne${resourcePascalName}Request";
 
 /**
@@ -114,7 +114,7 @@ export default async (event: H3Event) => {
   await GetOne${resourcePascalName}Request.validate(event);
   
   // Call the controller
-  const { show } = use${resourcePascalName}Controller();
+  const { show } = Use${resourcePascalName}Controller();
   return await show(id);
 };
 `;
@@ -125,7 +125,7 @@ export default async (event: H3Event) => {
  */
 function generateUpdateHandler(resourceName: string, resourcePascalName: string): string {
   return `import type { H3Event } from 'h3';
-import { use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
+import { Use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
 import { Update${resourcePascalName}Request } from "../requests/Update${resourcePascalName}Request";
 
 /**
@@ -147,7 +147,7 @@ export default async (event: H3Event) => {
   const validatedData = await Update${resourcePascalName}Request.validate(event);
   
   // Call the controller
-  const { update } = use${resourcePascalName}Controller();
+  const { update } = Use${resourcePascalName}Controller();
   return await update(id, validatedData);
 };
 `;
@@ -158,7 +158,7 @@ export default async (event: H3Event) => {
  */
 function generateDeleteHandler(resourceName: string, resourcePascalName: string): string {
   return `import type { H3Event } from 'h3';
-import { use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
+import { Use${resourcePascalName}Controller } from "../${resourcePascalName}Controller";
 import { Delete${resourcePascalName}Request } from "../requests/Delete${resourcePascalName}Request";
 
 /**
@@ -180,7 +180,7 @@ export default async (event: H3Event) => {
   await Delete${resourcePascalName}Request.validate(event);
   
   // Call the controller
-  const { destroy } = use${resourcePascalName}Controller();
+  const { destroy } = Use${resourcePascalName}Controller();
   return await destroy(id);
 };
 `;
